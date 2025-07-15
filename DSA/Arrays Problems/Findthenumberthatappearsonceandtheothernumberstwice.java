@@ -3,7 +3,7 @@ import java.util.*;
 public class Findthenumberthatappearsonceandtheothernumberstwice {
     public static void main(String[] args) {
       int a[]= {1,1,2,3,3,4,4};
-      HashMap<Integer,Integer> set = new HashMap<>();
+      HashMap<Integer,Integer> set = new HashMap<>();        
       int n = a.length;
       for(int i=0;i<n;i++){
        if(set.containsKey(a[i])){
@@ -20,3 +20,27 @@ public class Findthenumberthatappearsonceandtheothernumberstwice {
       }
   }
 }
+
+
+/*| Metric           | Complexity |
+| ---------------- | ---------- |
+| Time Complexity  | `O(n)`     |
+| Space Complexity | `O(n)`     |
+*/
+
+
+/*Optimal Solution
+int[] a = {1,1,2,3,3,4,4};
+int result = 0;
+for (int num : a) {
+    result ^= num;
+}
+System.out.println(result);
+This works because:
+
+x ^ x = 0
+
+x ^ 0 = x
+
+✔️ New Time: O(n), Space: O(1) – highly efficient.
+*/
