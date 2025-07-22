@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class CountTheDigits {
+public class PalindromeOfNumber {
     public static void main(String[] args) {
       int n= 1221;
       if(paliNum(n)==true){
