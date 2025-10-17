@@ -15,7 +15,7 @@ class Node {
     }
 }
 
-public class DeleteKthPositionNode {
+public class DeleteTailNode {
 
     // Function to print linked list
     public static void print(Node head) {
@@ -27,32 +27,20 @@ public class DeleteKthPositionNode {
         System.out.println();
     }
 
-    // Function to delete Kth node
-    public static Node deleteKthPositionNode(Node head, int k) {
-        if (head == null) return null;
-
-        // If we need to delete the first node
-        if (k == 1) {
-            head = head.next;
-            return head;
-        }
+    // Function to delete the tail node
+    public static Node deleteTailNode(Node head) {
+        // If list is empty or has only one node
+        if (head == null || head.next == null) return null;
 
         Node temp = head;
-        int count = 1;
 
-        // Traverse to the (k-1)th node
-        while (temp != null && count < k - 1) {
+        // Traverse till second last node
+        while (temp.next.next != null) {
             temp = temp.next;
-            count++;
         }
 
-        // If k is more than the number of nodes
-        if (temp == null || temp.next == null)
-            return head;
-
-        // Remove the kth node
-        temp.next = temp.next.next;
-
+        // Remove the tail node
+        temp.next = null;
         return head;
     }
 
@@ -72,9 +60,9 @@ public class DeleteKthPositionNode {
         System.out.println("Original Linked List:");
         print(head);
 
-        head = deleteKthPositionNode(head, 3);
+        head = deleteTailNode(head); // update head after deletion
 
-        System.out.println("After Deleting 3rd Node:");
+        System.out.println("After deleting tail node:");
         print(head);
     }
 }
